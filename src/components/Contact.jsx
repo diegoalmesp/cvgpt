@@ -11,6 +11,17 @@ import resumeImage from "../assets/tech/resume.png";
 import fullstackpdf from "../assets/fullstack.pdf";
 import CoffeeMakerCanvas from "./canvas/CoffeeMaker";
 
+emailjs.init({
+  publicKey: process.env.REACT_APP_EMAILJS_RECEIVERID,
+  blockHeadless: true,
+  limitRate: {
+    // Set the limit rate for the application
+    id: "app",
+    // Allow 1 request per 10s
+    throttle: 10000,
+  },
+});
+
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
@@ -44,8 +55,7 @@ const Contact = () => {
           to_name: "Contacto web Diegol",
           email: form.email,
           message: form.message,
-        },
-        process.env.REACT_APP_EMAILJS_RECEIVERID
+        }
       )
       .then(
         () => {
