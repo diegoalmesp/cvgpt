@@ -22,4 +22,13 @@ module.exports = {
       version: 'detect',
     },
   },
+  overrides: [
+    {
+      files: ['api/**/*.js'],
+      env: {
+        node: true,
+        browser: false,
+      },
+    },
+  ],
 };
