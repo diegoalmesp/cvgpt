@@ -127,22 +127,60 @@ export default async function handler(req, res) {
 
           Inglés: fluido
 
-          👨‍💼 Experiencia Profesional (Resumen de roles)
-          Senior Front-End Developer en ClubHub (Royal Holiday) — 2023-2024
+          🧑‍💻 Experiencia Profesional (con meses y años)
+          Frontend Developer — Medical Web Experts (Córdoba, Argentina)
+          📅 Julio 2024 – Actualidad
+          Tecnologías: ReactJS, TypeScript
 
-          Front-End Developer en Mundi.io — 2021-2023
+          Full Stack Developer, Content Creator (Freelance)
+          📅 Enero 2012 – Actualidad
+          Tecnologías: ReactJS, Svelte, GraphQL, Apollo, styled-components, NextJS, NestJS, Hasura, Docker, monorepos.
 
-          Full-Stack Developer / Líder Técnico en Tarmac.io (Trimble, SPINS) — 2020-2021
+          Frontend Developer — Royal Holiday (México)
+          📅 Noviembre 2023 – Junio 2024 (8 meses)
+          Tecnologías: TypeScript, Svelte, GraphQL (Hasura), Tailwind, Monorepo (Turborepo), NestJS.
 
-          Front-End Developer en Thrive Market (Distillery) — 2020-2021
+          Frontend Developer — Mundi.io (Córdoba, Argentina)
+          📅 Abril 2021 – Noviembre 2023 (2 años 8 meses)
+          Tecnologías: ReactJS, NextJS, Tailwind, GraphQL (Hasura), Microfrontends (SingleSPA).
 
-          Full-Stack Developer en Eureka Labs — 2018-2019
+          Frontend Developer — Distillery (Thrive Market) (Córdoba, Argentina)
+          📅 Septiembre 2020 – Abril 2021 (8 meses)
+          Tecnologías: ReactJS, NextJS, styled-components.
 
-          Front-End Developer en Vates (Claro) — 2016-2018
+          Full Stack Developer — Tarmac.IO (Trimble, SPINS)
+          📅 Abril 2019 – Septiembre 2020 (1 año 6 meses)
+          Tecnologías: NodeJS, Lambdas, AngularJS, ReactJS, GraphQL (Apollo).
 
-          Web Developer en DigitalBlend (Globad) — 2015-2016
+          Full Stack Developer — Eureka Labs (Córdoba, Argentina)
+          📅 Junio 2018 – Marzo 2019 (10 meses)
+          Tecnologías: ReactJS, NodeJS, Express, MongoDB.
 
-          Front-End Developer en Elevare Group — 2024 - actual
+          Web Developer — VATES - Ingeniería en Software (Córdoba, Argentina)
+          📅 Agosto 2016 – Mayo 2018 (1 año 10 meses)
+          Tecnologías: ReactJS, NodeJS, Express, jQuery, SASS.
+
+          Web Developer — Digital Blend (Córdoba, Argentina)
+          📅 Julio 2015 – Julio 2016 (1 año 1 mes)
+          Tecnologías: PHP, Laravel, AngularJS, Phaser, NodeJS, Express, jQuery, Socket.IO.
+
+          PHP Developer — Globant (Córdoba, Argentina)
+          📅 2014 – Diciembre 2014 (1 año)
+          Proyecto Disney — Web UI.
+
+          Web Developer — Grupo ERIN (Córdoba, Argentina)
+          📅 Diciembre 2012 – Febrero 2014 (1 año 3 meses)
+          Tecnologías: PHP, MySQL, Symfony 2, Laravel, HTML5, CSS3, jQuery, Joomla, Wordpress.
+
+          Analista de Testing SAP — Novatium Argentina ARL S.A.
+          📅 Enero 2012 – Abril 2013 (1 año 4 meses)
+          Testing SAP, documentación, QlikView, SharePoint.
+
+          Agente Técnico — Apex América
+          📅 Abril 2010 – Diciembre 2011 (1 año 9 meses)
+
+          Asistente de Ingeniería — Sohipren S.A.
+          📅 Junio 2004 – Septiembre 2007 (3 años 4 meses)
 
           🎓 Educación
           Bachiller en administración y gestión — Instituto Jesuita Sagrada Familia (2002)
@@ -172,7 +210,7 @@ export default async function handler(req, res) {
 
           Vivo con mi mujer, dos hijas y un perro
 
-          Respondé de manera amable y breve. Si te preguntan sobre alguien más que no sea Diego, decí que no tenés información sobre esa persona.`,
+          Respondé de manera amable y breve. Si te preguntan sobre alguien más que no sea Diego, decí que no tenés información sobre esa persona. Cualquier otra pregunta que no sea sobre mi currículim vitae sólo respondé genéricamente que no tenes esa información.`,
         },
         { role: 'user', content: message },
       ],
