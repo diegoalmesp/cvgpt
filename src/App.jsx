@@ -1,18 +1,16 @@
-import { BrowserRouter } from "react-router-dom";
-import "react-tooltip/dist/react-tooltip.css";
+import { BrowserRouter } from 'react-router-dom';
+import 'react-tooltip/dist/react-tooltip.css';
 
 import {
   About,
   Contact,
   Experience,
-  // Feedbacks,
   Hero,
   Navbar,
   Tech,
-  Works,
   StarsCanvas,
-} from "./components";
-import ChatWindow from "./components/Chat";
+} from './components';
+import ChatWindow from './components/Chat';
 
 const App = () => {
   return (
@@ -26,8 +24,6 @@ const App = () => {
         <About />
         <Experience />
         <Tech />
-        <Works />
-        {/* <Feedbacks /> */}
         <div className="relative z-0">
           <Contact />
           <StarsCanvas />

@@ -1,18 +1,20 @@
-import React, { Suspense } from "react";
-import PropTypes from "prop-types";
-import { Canvas } from "@react-three/fiber";
+/* eslint-disable react/no-unknown-property */
+
+import { Suspense } from 'react';
+import PropTypes from 'prop-types';
+import { Canvas } from '@react-three/fiber';
 import {
   Decal,
   Float,
   OrbitControls,
   Preload,
   useTexture,
-} from "@react-three/drei";
+} from '@react-three/drei';
 
-import CanvasLoader from "../Loader";
+import CanvasLoader from '../Loader';
 
 const Ball = ({ imgUrl }) => {
-  const [decal] = useTexture([imgUrl || ""]);
+  const [decal] = useTexture([imgUrl || '']);
 
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>

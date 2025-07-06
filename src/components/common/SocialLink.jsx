@@ -1,3 +1,11 @@
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  href: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+};
+
 const SocialLink = ({ href, icon, label }) => {
   return (
     <a
@@ -15,5 +23,7 @@ const SocialLink = ({ href, icon, label }) => {
     </a>
   );
 };
+
+SocialLink.propTypes = propTypes;
 
 export default SocialLink;

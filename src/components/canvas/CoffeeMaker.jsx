@@ -1,12 +1,14 @@
 // https://sketchfab.com/Ryan_Nein
-import { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+/* eslint-disable react/no-unknown-property */
 
-import CanvasLoader from "../Loader";
+import { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
+
+import CanvasLoader from '../Loader';
 
 const CoffeeMaker = () => {
-  const earth = useGLTF("./coffee_maker/scene.gltf");
+  const earth = useGLTF('./coffee_maker/scene.gltf');
 
   return (
     <mesh>

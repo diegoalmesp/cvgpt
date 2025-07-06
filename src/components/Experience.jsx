@@ -3,6 +3,7 @@ import {
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
 import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
 
 import 'react-vertical-timeline-component/style.min.css';
 
@@ -10,6 +11,17 @@ import { styles } from '../styles';
 import { experiences } from '../constants';
 import { SectionWrapper } from '../hoc';
 import { textVariant } from '../utils/motion';
+
+const propTypes = {
+  experience: PropTypes.shape({
+    date: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    company_name: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    iconBg: PropTypes.string.isRequired,
+    points: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+};
 
 const ExperienceCard = ({ experience }) => {
   return (
@@ -26,7 +38,7 @@ const ExperienceCard = ({ experience }) => {
           <img
             src={experience.icon}
             alt={experience.company_name}
-            className="w-[60%] h-[60%] object-contain"
+            className="w-[60%] h-[60%] object-contain scale-150"
           />
         </div>
       }
@@ -54,6 +66,8 @@ const ExperienceCard = ({ experience }) => {
     </VerticalTimelineElement>
   );
 };
+
+ExperienceCard.propTypes = propTypes;
 
 const Experience = () => {
   return (
