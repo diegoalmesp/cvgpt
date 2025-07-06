@@ -25,7 +25,7 @@ const Contact = () => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
@@ -35,36 +35,36 @@ const Contact = () => {
 
     setLoading(true);
 
-    try {
-      const res = await fetch("/api/email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+    emailjs
+      .send(
+        process.env.REACT_APP_EMAILJS_USERID,
+        process.env.REACT_APP_EMAILJS_TEMPLATEID,
+        {
           name: form.name,
           to_name: "Contacto web Diegol",
           email: form.email,
           message: form.message,
-        }),
-      });
+        },
+        process.env.REACT_APP_EMAILJS_RECEIVERID
+      )
+      .then(
+        () => {
+          setLoading(false);
+          alert("Thank you. I will get back to you as soon as possible.");
 
-      const data = await res.json();
-      if (data.error) {
-        setLoading(false);
-        alert(data.error);
-        return;
-      }
-      setLoading(false);
-      alert("Thank you. I will get back to you as soon as possible.");
-      setForm({
-        name: "",
-        email: "",
-        message: "",
-      });
-    } catch (error) {
-      setLoading(false);
-      console.error("Email sending error:", error);
-      alert("Something went wrong. Please try again later.");
-    }
+          setForm({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          setLoading(false);
+
+          console.log(error);
+          alert("Something went wrong. Please try again later.");
+        }
+      );
   };
 
   return (
