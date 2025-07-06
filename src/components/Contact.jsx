@@ -48,8 +48,8 @@ const Contact = () => {
 
     emailjs
       .send(
-        process.env.REACT_APP_EMAILJS_USERID,
-        process.env.REACT_APP_EMAILJS_TEMPLATEID,
+        "service_k2xrewg", // process.env.REACT_APP_EMAILJS_USERID,
+        "template_f37gkpk", // process.env.REACT_APP_EMAILJS_TEMPLATEID,
         {
           name: form.name,
           to_name: "Contacto web Diegol",
