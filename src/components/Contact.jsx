@@ -12,7 +12,7 @@ import fullstackpdf from "../assets/fullstack.pdf";
 import CoffeeMakerCanvas from "./canvas/CoffeeMaker";
 
 emailjs.init({
-  publicKey: process.env.REACT_APP_EMAILJS_RECEIVERID,
+  publicKey: "jlNRBnQaYTpUXjpZM", // process.env.REACT_APP_EMAILJS_RECEIVERID,
   blockHeadless: true,
   limitRate: {
     // Set the limit rate for the application
