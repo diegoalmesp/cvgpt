@@ -39,13 +39,11 @@ export default async function handler(req, res) {
   const data = await response.json();
 
   if (data.error) {
-    if (data.error.code === "Error getting response.") {
-      return res
-        .status(500)
-        .json({
-          error:
-            "Error: se acabaron los tokens, por favor descarga mi CV al final",
-        });
+    if (data.error.code.indexOf("You exceeded your current quota") > -1) {
+      return res.status(500).json({
+        error:
+          "Error: se acabaron los tokens, por favor descarga mi CV al final",
+      });
     }
     return res.status(500).json({ error: data.error.message });
   }
