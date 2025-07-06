@@ -1,25 +1,24 @@
-import React from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import { motion } from "framer-motion";
+} from 'react-vertical-timeline-component';
+import { motion } from 'framer-motion';
 
-import "react-vertical-timeline-component/style.min.css";
+import 'react-vertical-timeline-component/style.min.css';
 
-import { styles } from "../styles";
-import { experiences } from "../constants";
-import { SectionWrapper } from "../hoc";
-import { textVariant } from "../utils/motion";
+import { styles } from '../styles';
+import { experiences } from '../constants';
+import { SectionWrapper } from '../hoc';
+import { textVariant } from '../utils/motion';
 
 const ExperienceCard = ({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "#1d1836",
-        color: "#fff",
+        background: '#1d1836',
+        color: '#fff',
       }}
-      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+      contentArrowStyle={{ borderRight: '7px solid  #232631' }}
       date={experience.date}
       iconStyle={{ background: experience.iconBg }}
       icon={
@@ -70,9 +69,21 @@ const Experience = () => {
             <ExperienceCard key={index} experience={experience} />
           ))}
         </VerticalTimeline>
+        <pre className="mt-10 text-gray-500 text-center text-sm">
+          Note: For older experiences please refer to my{' '}
+          <a
+            href="https://www.linkedin.com/in/diego-almiron-b385024b/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:underline"
+          >
+            LinkedIn profile
+          </a>
+          .
+        </pre>
       </div>
     </>
   );
 };
 
-export default SectionWrapper(Experience, "work");
+export default SectionWrapper(Experience, 'work');

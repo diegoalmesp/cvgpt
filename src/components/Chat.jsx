@@ -92,7 +92,7 @@ const ChatWindow = () => {
       <button
         className={`fixed bottom-4 right-3 scale-125 ${
           isOpen && "bottom-[390px]"
-        } bg-violet-600 text-white p-2 rounded-full shadow-lg z-20 hover:bg-violet-700 transition-colors duration-300`}
+        } bg-violet-600 text-white p-2 rounded-full shadow-lg z-20 hover:bg-violet-700 transition-colors duration-300 `}
         aria-label="Toggle chat window"
         data-tooltip-id="chat-tooltip"
         data-tooltip-html="You can chat with my CV using ChatGPT.<br />Ask anything about my skills, experience, or projects!"
