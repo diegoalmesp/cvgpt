@@ -39,10 +39,10 @@ export default async function handler(req, res) {
   const data = await response.json();
 
   if (data.error) {
-    if (data.error.code.indexOf("You exceeded your current quota") > -1) {
+    if (data.error.indexOf("You exceeded your current quota") > -1) {
       return res.status(500).json({
         error:
-          "Error: se acabaron los tokens, por favor descarga mi CV al final",
+          "Error: se acabaron los tokens de AI, por favor descarga mi CV en la sección de Contacto.",
       });
     }
     return res.status(500).json({ error: data.error.message });

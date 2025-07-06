@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import gitImage from "../assets/tech/github.png";
@@ -26,7 +25,7 @@ const Contact = () => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
@@ -36,37 +35,36 @@ const Contact = () => {
 
     setLoading(true);
 
-    emailjs
-      .send(
-        "service_y1wl3z2",
-        "template_rn5salx",
-        {
-          form_name: form.name,
-          to_name: "JavaScript Tutorial Family",
-          from_email: form.email,
-          to_email: "abejrijwicareer@gmail.com",
+    try {
+      const res = await fetch("/api/email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          to_name: "Contacto web Diegol",
+          email: form.email,
           message: form.message,
-        },
-        "6tlM2mstrxjjWpjRs"
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
+        }),
+      });
 
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-
-          console.log(error);
-          alert("Something went wrong. Please try again later.");
-        }
-      );
+      const data = await res.json();
+      if (data.error) {
+        setLoading(false);
+        alert(data.error);
+        return;
+      }
+      setLoading(false);
+      alert("Thank you. I will get back to you as soon as possible.");
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      setLoading(false);
+      console.error("Email sending error:", error);
+      alert("Something went wrong. Please try again later.");
+    }
   };
 
   return (
@@ -81,7 +79,7 @@ const Contact = () => {
         <h3 className={styles.sectionHeadText}>Contact.</h3>
         <div className="mt-8 flex flex-wrap gap-6 justify-center">
           <a
-            href="https://github.com/Abej-Rijwi"
+            href="https://github.com/diegoalmesp"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-700 to-purple-800 hover:from-purple-600 hover:to-purple-700 text-white font-medium rounded-xl transition duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto"
@@ -94,7 +92,7 @@ const Contact = () => {
             <span className="text-xl">GitHub</span>
           </a>
           <a
-            href="https://www.linkedin.com/in/abej-rijwi"
+            href="https://www.linkedin.com/in/diego-almiron-b385024b/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-600 hover:to-blue-700 text-white font-medium rounded-xl transition duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto"

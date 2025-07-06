@@ -1,63 +1,3 @@
-// import { useState } from "react";
-// import { BiChat, BiWindowClose } from "react-icons/bi";
-// import { Tooltip } from "react-tooltip";
-
-// const ChatWindow = () => {
-//   const [isOpen, setIsOpen] = useState(false);
-//   return (
-//     <>
-//       {isOpen && (
-//         <div
-//           className={`chat-window fixed bottom-0 right-0 m-2 w-[90%] max-w-[1024px] h-96 bg-black-100 shadow-lg rounded-lg p-4 z-10 border-gray-200 border-2`}
-//           //   onBlur={() => setIsOpen(false)}
-//           //   tabIndex={0}
-//         >
-//           <div className="chat-header">
-//             <h2>Ask to my CV (w/ChatGPT)</h2>
-//           </div>
-//           <div className="chat-messages">
-//             {/* Messages will be displayed here */}
-//           </div>
-//           <div className="chat-input absolute bottom-0 left-0 p-2 w-full flex items-center justify-center">
-//             <textarea
-//               name="message"
-//               placeholder="Type your message..."
-//               className="bg-tertiary py-4 px-6 w-3/4 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
-//             />
-//             <button type="submit" className="w-1/4">
-//               Send
-//             </button>
-//           </div>
-//         </div>
-//       )}
-//       {/* {!isOpen && (
-//         <div className="chat-window-closed fixed bottom-1 right-1 w-[270px] h-16 bg-violet-950 shadow-lg rounded-lg p-4 z-10">
-//           <p>....</p>
-//         </div>
-//       )} */}
-
-//       <button
-//         className={`fixed bottom-4 right-3 scale-125 ${
-//           isOpen && "bottom-[390px]"
-//         } bg-violet-600 text-white p-2 rounded-full shadow-lg z-20 hover:bg-violet-700 transition-colors duration-300`}
-//         aria-label="Toggle chat window"
-//         data-tooltip-id="chat-tooltip"
-//         data-tooltip-html="You can chat with my CV using ChatGPT. <br /> Ask anything about my skills, experience, or projects!"
-//         data-tooltip-place="left"
-//         title="Toggle chat window"
-//         type="button"
-//         tabIndex={0}
-//         onClick={() => setIsOpen(!isOpen)}
-//       >
-//         {isOpen ? <BiWindowClose /> : <BiChat />}
-//       </button>
-//       <Tooltip id="chat-tooltip" openOnClick={false} className="z-20" />
-//     </>
-//   );
-// };
-
-// export default ChatWindow;
-
 import { useState } from "react";
 import { BiChat, BiWindowClose } from "react-icons/bi";
 import { Tooltip } from "react-tooltip";
@@ -129,12 +69,18 @@ const ChatWindow = () => {
             )}
           </div>
 
-          <div className="chat-input absolute bottom-0 left-0 p-2 w-full flex items-center justify-center">
+          <div className="chat-input absolute bottom-0 left-0 p-4 w-full flex items-center justify-center">
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault();
+                  sendMessage();
+                }
+              }}
               placeholder="Type your message..."
-              className="bg-tertiary py-4 px-6 w-3/4 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              className="bg-tertiary p-2 w-3/4 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium resize-none"
             />
             <button onClick={sendMessage} className="w-1/4">
               Send
