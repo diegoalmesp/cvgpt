@@ -83,8 +83,8 @@ const Experience = () => {
             <ExperienceCard key={index} experience={experience} />
           ))}
         </VerticalTimeline>
-        <pre className="mt-10 text-gray-500 text-center text-sm">
-          Note: For older experiences please refer to my{' '}
+        <span className="mt-10 text-gray-500 text-center text-sm">
+          Note: For older experience please refer to my{' '}
           <a
             href="https://www.linkedin.com/in/diego-almiron-b385024b/"
             target="_blank"
@@ -94,7 +94,7 @@ const Experience = () => {
             LinkedIn profile
           </a>
           .
-        </pre>
+        </span>
       </div>
     </>
   );
