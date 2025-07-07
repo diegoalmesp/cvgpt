@@ -1,47 +1,47 @@
-import { useState } from "react";
-import { BiChat, BiWindowClose } from "react-icons/bi";
-import { Tooltip } from "react-tooltip";
+import { useState } from 'react';
+import { BiChat, BiWindowClose } from 'react-icons/bi';
+import { Tooltip } from 'react-tooltip';
 
 const ChatWindow = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
 
-    const userMessage = { sender: "user", text: input };
+    const userMessage = { sender: 'user', text: input };
     setMessages((prev) => [...prev, userMessage]);
     setLoading(true);
 
     try {
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: input }),
       });
 
       const data = await res.json();
 
       if (data.reply) {
-        const botMessage = { sender: "bot", text: data.reply };
+        const botMessage = { sender: 'bot', text: data.reply };
         setMessages((prev) => [...prev, botMessage]);
       } else {
         setMessages((prev) => [
           ...prev,
-          { sender: "bot", text: "Error getting response." },
+          { sender: 'bot', text: 'Error getting response.' },
         ]);
       }
     } catch (error) {
       console.error(error);
       setMessages((prev) => [
         ...prev,
-        { sender: "bot", text: "Error connecting to server." },
+        { sender: 'bot', text: 'Error connecting to server.' },
       ]);
     } finally {
       setLoading(false);
-      setInput("");
+      setInput('');
     }
   };
 
@@ -58,7 +58,7 @@ const ChatWindow = () => {
               <div
                 key={idx}
                 className={`mb-2 ${
-                  msg.sender === "user" ? "text-right" : "text-left"
+                  msg.sender === 'user' ? 'text-right' : 'text-left'
                 }`}
               >
                 <span className="text-sm">{msg.text}</span>
@@ -74,7 +74,7 @@ const ChatWindow = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => {
-                if (e.key === "Enter" && !e.shiftKey) {
+                if (e.key === 'Enter' && !e.shiftKey) {
                   e.preventDefault();
                   sendMessage();
                 }
@@ -90,12 +90,12 @@ const ChatWindow = () => {
       )}
 
       <button
-        className={`fixed bottom-4 right-3 scale-125 ${
-          isOpen && "bottom-[390px]"
+        className={`joyride-chat fixed bottom-4 right-3 scale-125 ${
+          isOpen && 'bottom-[390px]'
         } bg-violet-600 text-white p-2 rounded-full shadow-lg z-20 hover:bg-violet-700 transition-colors duration-300 `}
         aria-label="Toggle chat window"
         data-tooltip-id="chat-tooltip"
-        data-tooltip-html="You can chat with my CV using ChatGPT.<br />Ask anything about my skills, experience, or projects!"
+        data-tooltip-html="Chat with my CV here!"
         data-tooltip-place="left"
         title="Toggle chat window"
         type="button"
