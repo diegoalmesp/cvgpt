@@ -82,8 +82,12 @@ const ChatWindow = () => {
               placeholder="Type your message..."
               className="bg-tertiary p-2 w-3/4 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium resize-none"
             />
-            <button onClick={sendMessage} className="w-1/4">
-              Send
+            <button onClick={sendMessage} className="w-1/4" disabled={loading}>
+              {loading ? (
+                <span className="text-gray-400">Sending...</span>
+              ) : (
+                <span className="text-white">Send</span>
+              )}
             </button>
           </div>
         </div>
