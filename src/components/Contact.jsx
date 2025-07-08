@@ -76,7 +76,9 @@ const Contact = () => {
         variants={slideIn('left', 'tween', 0.2, 1)}
         className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
       >
-        <p className={styles.sectionSubText}>Let&apos;s have a coffee!</p>
+        <p className={styles.sectionSubText}>
+          Let&apos;s have a coffee &#8594;
+        </p>
         <h3 className={styles.sectionHeadText}>Contact me</h3>
         <div className="mt-8 flex flex-wrap gap-6 justify-center">
           <SocialLink
