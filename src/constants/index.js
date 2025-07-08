@@ -20,6 +20,7 @@ import {
   aditya,
   santosh,
   school,
+  logo,
 } from '../assets';
 
 export const navLinks = [
@@ -112,6 +113,16 @@ const experiences = [
       'rontend Technologies: Typescript, Svelte, GraphQL (Hasura), Tailwind, Monorepo (Turborepo).',
       'Engaged in troubleshooting and debugging complex issues to improve application stability and security.',
       'Bakend Technologies: NestJS and GraphQL,',
+    ],
+  },
+  {
+    title: 'Content Creator',
+    company_name: 'YouTube',
+    icon: logo,
+    iconBg: '#010101',
+    date: '2023 - Present',
+    points: [
+      'Content Creation: Developed and published engaging content on YouTube, focusing on web development tutorials, some tech reviews and educational content related to online shopping',
     ],
   },
   {

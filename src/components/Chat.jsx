@@ -1,12 +1,20 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { BiChat, BiWindowClose } from 'react-icons/bi';
 import { Tooltip } from 'react-tooltip';
+import Markdown from 'react-markdown';
 
 const ChatWindow = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const bottomRef = useRef(null); // 👈 nuevo ref
+
+  useEffect(() => {
+    if (bottomRef.current) {
+      bottomRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -49,24 +57,38 @@ const ChatWindow = () => {
     <>
       {isOpen && (
         <div className="chat-window fixed bottom-0 right-0 m-2 w-[90%] max-w-[1024px] h-96 bg-black-100 shadow-lg rounded-lg p-4 z-10 border-gray-200 border-2">
-          <div className="chat-header mb-2">
-            <h2 className="text-white">Ask to my CV (w/ChatGPT)</h2>
+          <div className="chat-header mb-2 flex items-start justify-between">
+            <span
+              className="w-4 h-4 bg-red-600 rounded-lg cursor-pointer"
+              onClick={() => setIsOpen(!isOpen)}
+            />
+            <h2 className="text-white text-right">Ask to my CV (w/ChatGPT)</h2>
           </div>
 
           <div className="chat-messages overflow-auto h-60 bg-black rounded p-2 text-white">
             {messages.map((msg, idx) => (
-              <div
-                key={idx}
-                className={`mb-2 ${
-                  msg.sender === 'user' ? 'text-right' : 'text-left'
-                }`}
-              >
-                <span className="text-sm">{msg.text}</span>
+              <div key={idx} className="mb-2">
+                {msg.sender === 'user' && (
+                  <>
+                    <span className="text-green-600 mr-2 font-bold">
+                      &#8594;
+                    </span>
+                    <span className="text-cyan-600 mr-2 font-bold">~</span>
+                  </>
+                )}
+                <span className="text-sm font-mono">
+                  {msg.sender === 'user' ? (
+                    msg.text
+                  ) : (
+                    <Markdown>{msg.text}</Markdown>
+                  )}
+                </span>
               </div>
             ))}
             {loading && (
               <p className="text-sm italic text-gray-400">Thinking...</p>
             )}
+            <div ref={bottomRef} />
           </div>
 
           <div className="chat-input absolute bottom-0 left-0 p-4 w-full flex items-center justify-center">
@@ -94,16 +116,13 @@ const ChatWindow = () => {
       )}
 
       <button
-        className={`joyride-chat fixed bottom-4 right-3 scale-125 ${
-          isOpen && 'bottom-[390px]'
-        } bg-violet-600 text-white p-2 rounded-full shadow-lg z-20 hover:bg-violet-700 transition-colors duration-300 `}
+        className={`joyride-chat fixed ${
+          isOpen && 'hidden'
+        } bottom-4 right-3 scale-125 bg-violet-600 text-white p-2 rounded-full shadow-lg z-20 hover:bg-violet-700 transition-colors duration-300 `}
         aria-label="Toggle chat window"
         data-tooltip-id="chat-tooltip"
         data-tooltip-html="Chat with my CV here!"
         data-tooltip-place="left"
-        title="Toggle chat window"
-        type="button"
-        tabIndex={0}
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? <BiWindowClose /> : <BiChat />}

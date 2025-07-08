@@ -5,7 +5,7 @@ module.exports = {
     es2021: true,
   },
   parserOptions: {
-    sourceType: 'module', // <- esto habilita import/export
+    sourceType: 'module',
     ecmaVersion: 2021,
   },
   extends: ['eslint:recommended', 'plugin:react/recommended'],
@@ -24,7 +24,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['api/**/*.js'],
+      files: ['api/**/*.js', 'tailwind.config.cjs'],
       env: {
         node: true,
         browser: false,

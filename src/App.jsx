@@ -12,6 +12,7 @@ import {
 } from './components';
 import ChatWindow from './components/Chat';
 import { useEffect } from 'react';
+import YouTube from './components/YouTube';
 
 const App = () => {
   const [run, setRun] = useState(true);
@@ -59,6 +60,7 @@ const App = () => {
         <About />
         <Experience />
         <Tech />
+        <YouTube />
         <div className="relative z-0">
           <Contact />
           <StarsCanvas />
