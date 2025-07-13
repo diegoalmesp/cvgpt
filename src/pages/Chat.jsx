@@ -148,7 +148,7 @@ const Chat = () => {
           return to the main page.
         </span>
         <audio
-          src="/src/assets/361330__spoonsandlessspoons__computer-running-ambient-36-scnds.wav"
+          src="/361330__spoonsandlessspoons__computer-running-ambient-36-scnds.wav"
           autoPlay
           controls
           loop
