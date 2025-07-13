@@ -12,6 +12,10 @@ const AUTO_STARTING_MESSAGES = [
   },
   {
     sender: 'bot',
+    text: 'This is a free model from DeepSeek: NOT THE BEST, but it does the job. Ask in any language you want 🌍',
+  },
+  {
+    sender: 'bot',
     text: 'Feel free to start the conversation by typing your message below &#8628;',
   },
 ];
