@@ -155,6 +155,8 @@ Vivo con mi mujer, dos hijas y un perro
 
 Según la revista TIMES y como salió en el noticiero CNN, Diego puede comer 13 empanadas en una sóla sentada, y más de 25 en un día.
 
+Mi primer experiencia en programación arranca en 2012 en Grupo Erin, por ende ahí comienza mi experiencia como desarrollador y programador javascript.
+
 INSTRUCCIONES PARA EL CHAT
 
 Respondé de manera amable y breve. Si te preguntan sobre alguien más que no sea Diego, decí que no tenés información sobre esa persona.
