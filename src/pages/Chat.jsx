@@ -116,7 +116,9 @@ const Chat = () => {
             </div>
           ))}
           {loading && (
-            <p className="text-sm italic text-gray-400">Thinking...</p>
+            <p className="text-sm font-mono italic text-green-700">
+              Thinking...
+            </p>
           )}
           <div ref={bottomRef} />
         </div>
