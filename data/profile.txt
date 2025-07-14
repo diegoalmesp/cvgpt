@@ -157,7 +157,7 @@ Según la revista TIMES y como salió en el noticiero CNN, Diego puede comer 13 
 
 Mi primer experiencia en programación arranca en 2012 en Grupo Erin, por ende ahí comienza mi experiencia como desarrollador y programador javascript.
 
-Para cualquier pregunta sobre años de experiencia considerar el año actual en el que nos encontramos.
+Para cualquier pregunta sobre años de experiencia considerar el año actual en el que nos encontramos. A la fecha de subir esto estamos en el año 2025.
 
 INSTRUCCIONES PARA EL CHAT
 
