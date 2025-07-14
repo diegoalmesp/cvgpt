@@ -3,6 +3,7 @@ import { BiChat, BiWindowClose } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
 import Markdown from 'react-markdown';
+import useTailwindBreakpoint from './hooks/useTailwindBreakpoint';
 
 const ChatWindow = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,6 +12,7 @@ const ChatWindow = () => {
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef(null);
   const navigate = useNavigate();
+  const { breakpoint, isIPad } = useTailwindBreakpoint();
 
   useEffect(() => {
     if (bottomRef.current) {
@@ -125,9 +127,11 @@ const ChatWindow = () => {
         data-tooltip-id="chat-tooltip"
         data-tooltip-html="Chat with my CV here!"
         data-tooltip-place="left"
-        // onClick={() => setIsOpen(!isOpen)}
         onClick={() => {
-          navigate('/chat');
+          if (breakpoint !== 'sm' && breakpoint !== 'md' && !isIPad) {
+            navigate('/chat');
+            return;
+          }
           setIsOpen(!isOpen);
         }}
       >
